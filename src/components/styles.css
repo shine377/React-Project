@@ -1,0 +1,81 @@
+.inputBox {
+  display: block;
+  width: 97%;
+  border: none;
+  height: 36px;
+  background-color: #e5e4e2;
+  border-radius: 4px;
+}
+.selectOption {
+  height: 32px;
+  width: 97%;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.App {
+  justify-content: space-between;
+  display: flex;
+  background-color: #e5e4e2;
+}
+
+.tab-content {
+  display: flex;
+}
+
+.nav-content {
+  padding-left: 13px;
+  margin-top: 9px;
+  font-size: 18px;
+}
+
+.nav-extension a:link, a:visited {
+  margin-right: 34px;
+  color: black;
+  background-color: white;
+  padding: 1px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-request a:link, a:visited {
+  margin-right: 34px;
+  color: black;
+  background-color: white;
+  padding: 1px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+.text-area {
+  display: block;
+  width: 1660px;
+  height: 176px;
+}
+
+/* a:link,
+a:visited {
+  background-color: white;
+  color: black;
+  padding: 1px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+} */
+
+.form-content{
+  padding-top: 10px;
+}
+
+.p-tag{
+  color: black;
+  font-size: 14px;
+}
+
+.submit-button{
+  background-color: white;
+  border: 1px solid;
+  border-radius: 13px;
+  height: 33px;
+}
