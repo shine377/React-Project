@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import "./styles.css";
+import Table from '../components/tableData'
 
 function Extension() {
   return (
@@ -7,17 +8,24 @@ function Extension() {
       <div className="App">
         <p className="nav-content">Assessment Extension</p>
         <div className="tab-content">
-          <Link to="/">
-            <h4 className="nav-item">
-              <a className="nav-link" href="/">
+          <Link to="/Student" style={{ backgroundColor: "white" }}>
+            <h4 className="nav-item nav-extension">
+              <a className="nav-link" href="/Student">
                 Extension request
               </a>
             </h4>
           </Link>
           <Link to="/form">
-            <h4 className="nav-item">
-              <a className="nav-link" href="/">
+            <h4 className="nav-item nav-extension-disabled">
+              <a className="nav-link" href="/form">
                 Request extension
+              </a>
+            </h4>
+          </Link>
+          <Link to="/">
+            <h4 className="nav-item role-change">
+              <a className="nav-link" href="/">
+                Role
               </a>
             </h4>
           </Link>
@@ -53,6 +61,7 @@ function Extension() {
         </div>
         <br></br>
       </div>
+      <Table/>
     </>
   );
 }

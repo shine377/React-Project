@@ -1,7 +1,7 @@
 import data from "../json/data.json";
 import { Link } from "react-router-dom";
 import { Checkbox } from "@material-ui/core";
-import { useState } from "react";
+// import { useState } from "react";
 
 function Form() {
   // const [checked, isChecked] = useState(false)
@@ -14,17 +14,24 @@ function Form() {
       <div className="App">
         <p className="nav-content">Assessment Extension</p>
         <div className="tab-content">
-          <Link to="/">
-            <h4 className="nav-item">
-              <a className="nav-link" href="/">
+          <Link to="/Student">
+            <h4 className="nav-item nav-request-disabled">
+              <a className="nav-link" href="/Student">
                 Extension request
               </a>
             </h4>
           </Link>
-          <Link to="/form">
-            <h4 className="nav-item nav-request">
-              <a className="nav-link nav-request" href="/">
+          <Link to="/form" style={{backgroundColor:"white"}}>
+            <h4 className="nav-item nav-request" >
+              <a className="nav-link nav-request"href="/form">
                 Request extension
+              </a>
+            </h4>
+          </Link>
+          <Link to="/">
+          <h4 className="nav-item role-change" >
+              <a className="nav-link"href="/">
+                Role
               </a>
             </h4>
           </Link>
@@ -208,9 +215,11 @@ function Form() {
           </div>
         </div>
         <div>
-          <button className="submit-button" disabled>
+          <Link to="/Student">
+          <button className="submit-button">
             Submit extension request
           </button>
+          </Link>
           <br></br>
           <p>
             Note: You must accept the declaration and fill in the required

@@ -19,18 +19,20 @@
   background-color: #e5e4e2;
 }
 
+/* tab-css */
 .tab-content {
   display: flex;
 }
 
 .nav-content {
-  padding-left: 13px;
+  padding-left: 15px;
   margin-top: 9px;
   font-size: 18px;
 }
 
-.nav-extension a:link, a:visited {
-  margin-right: 34px;
+.nav-extension a:link,
+a:visited {
+  /* margin-right: 30px; */
   color: black;
   background-color: white;
   padding: 1px 18px;
@@ -39,8 +41,9 @@
   display: inline-block;
 }
 
-.nav-request a:link, a:visited {
-  margin-right: 34px;
+.nav-request a:link,
+a:visited {
+  /* margin-right: 30px; */
   color: black;
   background-color: white;
   padding: 1px 18px;
@@ -48,34 +51,108 @@
   text-decoration: none;
   display: inline-block;
 }
+.nav-extension-disabled{
+  margin-right: 11px;
+  color: black;
+  padding: 1px 21px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+
+}
+.nav-request-disabled{
+  margin-right: 11px;
+  color: black;
+  padding: 1px 21px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+
+}
+
+.role-change{
+  width: 127px;
+  padding-left: 43px;
+}
+/*  */
+
 .text-area {
   display: block;
   width: 1660px;
   height: 176px;
 }
 
-/* a:link,
-a:visited {
-  background-color: white;
-  color: black;
-  padding: 1px 18px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-} */
-
-.form-content{
+.form-content {
   padding-top: 10px;
 }
 
-.p-tag{
+.p-tag {
   color: black;
   font-size: 14px;
 }
 
-.submit-button{
+.submit-button {
   background-color: white;
   border: 1px solid;
   border-radius: 13px;
   height: 33px;
 }
+
+/* list css */
+
+.pending-request {
+  margin-right: 10%;
+  background-color: #f8d224;
+  width: 76px;
+  padding-left: 13px;
+  border-radius: 5px;
+  height: 23px;
+  padding-top: 2px;
+}
+.approved-request {
+  margin-right: 10%;
+  background-color: #acd66f;
+  width: 76px;
+  padding-left: 9px;
+  border-radius: 5px;
+  height: 23px;
+  padding-top: 2px;
+}
+.denied-request {
+  margin-right: 10%;
+  background-color: #e63f3f;
+  width: 76px;
+  padding-left: 15px;
+  border-radius: 5px;
+  height: 23px;
+  padding-top: 2px;
+}
+.cancelled-request {
+  margin-right: 10%;
+  background-color: #161414;
+  width: 76px;
+  padding-left: 8px;
+  border-radius: 5px;
+  height: 23px;
+  padding-top: 2px;
+
+}
+ol {
+  display: flex;
+}
+
+ol li{
+  color: #161414;
+
+}
+/*  */
+
+/*no of page dropdown*/
+
+.page-count{
+  width: 194px;
+  margin-top: 25px;
+  height: 27px;
+}
+

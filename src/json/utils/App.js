@@ -1,19 +1,22 @@
 import Extension from "../../components/assessmentExtension";
 // import Table from "../../components/tableData";
-import Form from '../../components/extensionForm'
+import Form from "../../components/extensionForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import Roles from "../../components/roles";
+import Teacher from "../../components/teacherView";
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Extension/>}></Route>
-      {/* <Route path="/table" element={<Table/>}></Route> */}
-      <Route path="/form" element={<Form/>}></Route>
-    </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Roles />}></Route>
+          <Route path="/Student" element={<Extension />}></Route>
+          <Route path="/Teacher" element={<Teacher />}></Route>
+          {/* <Route path="/table" element={<Table/>}></Route> */}
+          <Route path="/form" element={<Form />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
