@@ -5,12 +5,15 @@
   height: 36px;
   background-color: #e5e4e2;
   border-radius: 4px;
+  padding-left: 10px;
 }
 .selectOption {
   height: 32px;
   width: 97%;
   background-color: white;
   border-radius: 4px;
+  padding-left: 3px;
+  color: #706a6a;
 }
 
 .App {
@@ -32,7 +35,6 @@
 
 .nav-extension a:link,
 a:visited {
-  /* margin-right: 30px; */
   color: black;
   background-color: white;
   padding: 1px 18px;
@@ -43,7 +45,6 @@ a:visited {
 
 .nav-request a:link,
 a:visited {
-  /* margin-right: 30px; */
   color: black;
   background-color: white;
   padding: 1px 18px;
@@ -51,27 +52,24 @@ a:visited {
   text-decoration: none;
   display: inline-block;
 }
-.nav-extension-disabled{
+.nav-extension-disabled {
   margin-right: 11px;
   color: black;
   padding: 1px 21px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-
-
 }
-.nav-request-disabled{
+.nav-request-disabled {
   margin-right: 11px;
   color: black;
   padding: 1px 21px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-
 }
 
-.role-change{
+.role-change {
   width: 127px;
   padding-left: 43px;
 }
@@ -136,23 +134,57 @@ a:visited {
   border-radius: 5px;
   height: 23px;
   padding-top: 2px;
-
 }
 ol {
   display: flex;
 }
 
-ol li{
+ol li {
   color: #161414;
-
 }
 /*  */
 
 /*no of page dropdown*/
 
-.page-count{
+.page-count {
   width: 194px;
   margin-top: 25px;
   height: 27px;
 }
 
+tr {
+  height: 50px;
+}
+
+.hr-line {
+  margin-bottom: 0px;
+}
+
+.student-role {
+  background-color: white;
+  border: 1px solid;
+  border-radius: 13px;
+  font-size: 40px;
+  color: #161414;
+  margin-bottom: 15px;
+}
+
+.teacher-role {
+  background-color: white;
+  border: 1px solid;
+  border-radius: 13px;
+  font-size: 40px;
+  color: #161414;
+}
+
+.roles {
+  margin-top: 20%;
+  background-color: #e5e4e2;
+  height: 327px;
+  padding-top: 39px;
+  border: 1px solid;
+}
+
+a:hover {
+  text-decoration: none;
+}

@@ -1,9 +1,29 @@
 import data from "../json/data.json";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Table() {
+  const [count, setCount] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageCount = count;
+  const lastIndex = currentPage * pageCount;
+  const firstIndex = lastIndex - pageCount;
+  const record = data.slice(firstIndex, lastIndex);
+  const pages = Math.ceil(data.length / pageCount);
+
+  function previousPage() {
+    if (currentPage !== firstIndex) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+  function nextPage() {
+    if (currentPage !== lastIndex) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
   return (
     <div className="container-fluid">
+      <hr className="hr-line"></hr>
       <div>
         <table className="table">
           <thead>
@@ -17,7 +37,7 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {data.map((obj) => (
+            {record.map((obj) => (
               <>
                 <tr>
                   <td>{obj.Date}</td>
@@ -39,17 +59,27 @@ function Table() {
           <nav aria-label="Page navigation example">
             <ul class="pagination">
               <li class="page-item">
-                <a class="page-link" href="/" aria-label="Previous">
+                <a
+                  class="page-link"
+                  href="#"
+                  aria-label="Previous"
+                  onClick={previousPage}
+                >
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="/">
-                  1
+                <a class="page-link" href="#">
+                  {pages}
                 </a>
               </li>
               <li class="page-item">
-                <a class="page-link" href="/" aria-label="Next">
+                <a
+                  class="page-link"
+                  href="#"
+                  aria-label="Next"
+                  onClick={nextPage}
+                >
                   <span aria-hidden="true">&raquo;</span>
                 </a>
               </li>
@@ -58,8 +88,17 @@ function Table() {
         </div>
         <div>
           <label>Per page</label>
-          <select className="page-count">
-            <option>1</option>
+          <select
+            className="page-count"
+            onChange={(e) => {
+              setCount(e.target.value);
+            }}
+          >
+            <option>10</option>
+            <option>20</option>
+            <option>30</option>
+            <option>40</option>
+            <option>50</option>
           </select>
         </div>
       </div>

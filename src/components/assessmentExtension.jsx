@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "./styles.css";
-import Table from '../components/tableData'
+import "../css/styles.css";
+import Table from "../components/tableData";
 
 function Extension() {
   return (
@@ -61,7 +61,7 @@ function Extension() {
         </div>
         <br></br>
       </div>
-      <Table/>
+      <Table />
     </>
   );
 }
