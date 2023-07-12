@@ -1,7 +1,27 @@
 import { Link } from "react-router-dom";
 import data from "../json/teacherData.json";
+import { useState } from "react";
 
 function Teacher() {
+  const [search, setSearch] = useState("");
+  const [count, setCount] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageCount = count;
+  const lastIndex = currentPage * pageCount;
+  const firstIndex = lastIndex - pageCount;
+  const record = data.slice(firstIndex, lastIndex);
+  const pages = Math.ceil(data.length / pageCount);
+
+  function previousPage() {
+    if (currentPage !== firstIndex) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+  function nextPage() {
+    if (currentPage !== lastIndex) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
   return (
     <>
       <div className="App">
@@ -49,9 +69,15 @@ function Teacher() {
       </div>
       <div className="container-fluid">
         <h4 style={{ paddingTop: "20px" }}>Extension request</h4>
-        <input placeholder="Search by assessment"></input>
+        <input
+          placeholder="Search byname,assessment"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        ></input>{" "}
         <button>Clear</button>
       </div>
+
       <div className="container-fluid">
         <hr className="hr-line"></hr>
         <div>
@@ -67,20 +93,35 @@ function Teacher() {
               </tr>
             </thead>
             <tbody>
-              {data.map((obj) => (
-                <>
-                  <tr>
-                    <td>{obj.Student_ID}</td>
-                    <td>{obj.Student_Name}</td>
-                    <td>{obj.Date_submitted}</td>
-                    <td>{obj.Assessment_title}</td>
-                    <td>{obj.Status}</td>
-                    <Link>
-                      <td>{obj.Detail}</td>
-                    </Link>
-                  </tr>
-                </>
-              ))}
+              {record
+                .filter((val) => {
+                  if (search === "") {
+                    return val;
+                  } else if (
+                    val.Student_Name.toLowerCase().includes(
+                      search.toLowerCase()
+                    ) ||
+                    val.Assessment_title.toLowerCase().includes(
+                      search.toLowerCase()
+                    )
+                  ) {
+                    return val;
+                  }
+                })
+                .map((obj) => (
+                  <>
+                    <tr>
+                      <td>{obj.Student_ID}</td>
+                      <td>{obj.Student_Name}</td>
+                      <td>{obj.Date_submitted}</td>
+                      <td>{obj.Assessment_title}</td>
+                      <td>{obj.Status}</td>
+                      <Link>
+                        <td>{obj.Detail}</td>
+                      </Link>
+                    </tr>
+                  </>
+                ))}
             </tbody>
           </table>
         </div>
@@ -89,17 +130,27 @@ function Teacher() {
             <nav aria-label="Page navigation example">
               <ul class="pagination">
                 <li class="page-item">
-                  <a class="page-link" href="/" aria-label="Previous">
+                  <a
+                    class="page-link"
+                    href="#"
+                    aria-label="Previous"
+                    onClick={previousPage}
+                  >
                     <span aria-hidden="true">&laquo;</span>
                   </a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link" href="/">
-                    1
+                  <a class="page-link" href="#">
+                    {pages}
                   </a>
                 </li>
                 <li class="page-item">
-                  <a class="page-link" href="/" aria-label="Next">
+                  <a
+                    class="page-link"
+                    href="#"
+                    aria-label="Next"
+                    onClick={nextPage}
+                  >
                     <span aria-hidden="true">&raquo;</span>
                   </a>
                 </li>
@@ -108,8 +159,17 @@ function Teacher() {
           </div>
           <div>
             <label>Per page</label>
-            <select className="page-count">
-              <option>1</option>
+            <select
+              className="page-count"
+              onChange={(e) => {
+                setCount(e.target.value);
+              }}
+            >
+              <option>10</option>
+              <option>20</option>
+              <option>30</option>
+              <option>40</option>
+              <option>50</option>
             </select>
           </div>
         </div>

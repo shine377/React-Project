@@ -54,11 +54,6 @@ function Extension() {
           </p>
           <hr></hr>
         </div>
-        <div>
-          <h4>Extension request</h4>
-          <input placeholder="Search by assessment"></input>
-          <button>Clear</button>
-        </div>
         <br></br>
       </div>
       <Table />

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Table() {
+  const [search, setSearch] = useState("");
   const [count, setCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const pageCount = count;
@@ -23,6 +24,16 @@ function Table() {
   }
   return (
     <div className="container-fluid">
+      <div>
+        <h4>Extension request</h4>
+        <input
+          placeholder="Search by assessment"
+          onChange={(e) => {
+            setSearch(e.target.value);
+          }}
+        ></input>
+        <button>Clear</button>
+      </div>
       <hr className="hr-line"></hr>
       <div>
         <table className="table">
@@ -37,20 +48,30 @@ function Table() {
             </tr>
           </thead>
           <tbody>
-            {record.map((obj) => (
-              <>
-                <tr>
-                  <td>{obj.Date}</td>
-                  <td>{obj.title}</td>
-                  <td>{obj.Extend}</td>
-                  <td>{obj.Approved}</td>
-                  <td>{obj.Status}</td>
-                  <Link>
-                    <td>{obj.Detail}</td>
-                  </Link>
-                </tr>
-              </>
-            ))}
+            {record
+              .filter((val) => {
+                if (search === "") {
+                  return val;
+                } else if (
+                  val.title.toLowerCase().includes(search.toLowerCase())
+                ) {
+                  return val;
+                }
+              })
+              .map((obj) => (
+                <>
+                  <tr>
+                    <td>{obj.Date}</td>
+                    <td>{obj.title}</td>
+                    <td>{obj.Extend}</td>
+                    <td>{obj.Approved}</td>
+                    <td>{obj.Status}</td>
+                    <Link>
+                      <td>{obj.Detail}</td>
+                    </Link>
+                  </tr>
+                </>
+              ))}
           </tbody>
         </table>
       </div>
