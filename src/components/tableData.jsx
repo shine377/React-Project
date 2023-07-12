@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 function Table() {
   return (
     <div className="container-fluid">
+      <hr className="hr-line"></hr>
       <div>
         <table className="table">
           <thead>

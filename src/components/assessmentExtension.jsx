@@ -1,8 +1,17 @@
 import { Link } from "react-router-dom";
 import "./styles.css";
-import Table from '../components/tableData'
+import Table from "../components/tableData";
+// import { useState } from "react";
+// import data from "../json/data.json";
+
 
 function Extension() {
+  // const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = (e) => {
+    console.log(e.targer.value);
+   
+      };
   return (
     <>
       <div className="App">
@@ -56,12 +65,15 @@ function Extension() {
         </div>
         <div>
           <h4>Extension request</h4>
-          <input placeholder="Search by assessment"></input>
+          <input
+            placeholder="Search by assessment"
+            onChange={handleSearch}
+          ></input>
           <button>Clear</button>
         </div>
         <br></br>
       </div>
-      <Table/>
+      <Table />
     </>
   );
 }

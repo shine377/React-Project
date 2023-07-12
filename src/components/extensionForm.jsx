@@ -1,14 +1,22 @@
 import data from "../json/data.json";
 import { Link } from "react-router-dom";
 import { Checkbox } from "@material-ui/core";
-// import { useState } from "react";
+import { useState } from "react";
 
 function Form() {
-  // const [checked, isChecked] = useState(false)
+  const [select, setSelect] = useState("-");
+  const [checked, isChecked] = useState(true);
+  const [count, setCount] = useState(0);
 
-  // const checkBox = () =>{
+  const dueDate = (value) => {
+    const date = data.find((jsons) => jsons.title === value);
+    console.log(date);
+  };
 
-  // }
+  const handleChange = (e) => {
+    setCount(e.target.value.length);
+  };
+
   return (
     <>
       <div className="App">
@@ -21,16 +29,16 @@ function Form() {
               </a>
             </h4>
           </Link>
-          <Link to="/form" style={{backgroundColor:"white"}}>
-            <h4 className="nav-item nav-request" >
-              <a className="nav-link nav-request"href="/form">
+          <Link to="/form" style={{ backgroundColor: "white" }}>
+            <h4 className="nav-item nav-request">
+              <a className="nav-link nav-request" href="/form">
                 Request extension
               </a>
             </h4>
           </Link>
           <Link to="/">
-          <h4 className="nav-item role-change" >
-              <a className="nav-link"href="/">
+            <h4 className="nav-item role-change">
+              <a className="nav-link" href="/">
                 Role
               </a>
             </h4>
@@ -87,7 +95,16 @@ function Form() {
             <div className="col-lg-6">
               <label>Assessment* (required)</label>
               <br></br>
-              <select className="selectOption">
+              <select
+                className="selectOption"
+                onChange={(e) => {
+                  setSelect(e.target.value);
+                }}
+              >
+                <option value={select} disabled="disabled" selected="selected">
+                  Select eligible assessment
+                </option>
+                {console.log("slected option", select)}
                 {data.map((obj) => (
                   <>
                     <option>{obj.title}</option>
@@ -97,13 +114,20 @@ function Form() {
             </div>
             <div className="col-lg-6">
               <label>Due date</label>
-              <input className="inputBox" placeholder="-" disabled></input>
+              <input
+                className="inputBox"
+                placeholder={dueDate(select)}
+                disabled
+              ></input>
             </div>
           </div>
           <div className="row form-content">
             <div className="col-lg-6">
               <label>How many additional days do you need?* (required)</label>
-              <select className="inputBox">
+              <select className="selectOption">
+                <option value="" disabled="disabled" selected="selected">
+                  Select days
+                </option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -125,8 +149,9 @@ function Form() {
               className="text-area"
               placeholder="Enter your reason for extension"
               maxLength={3000}
+              onChange={handleChange}
             ></textarea>
-            <h5>Character count: 0/3000</h5>
+            <h5>Character count: {count}/3000</h5>
           </div>
         </div>
         <div className="row">
@@ -208,7 +233,7 @@ function Form() {
               of view.
             </p>
             <hr></hr>
-            <Checkbox></Checkbox>
+            <Checkbox onClick={() => isChecked(false)}></Checkbox>
             <label>
               I agree to the applicant declaration agreement statement above.(*)
             </label>
@@ -216,9 +241,9 @@ function Form() {
         </div>
         <div>
           <Link to="/Student">
-          <button className="submit-button">
-            Submit extension request
-          </button>
+            <button className="submit-button" disabled={checked}>
+              Submit extension request
+            </button>
           </Link>
           <br></br>
           <p>
