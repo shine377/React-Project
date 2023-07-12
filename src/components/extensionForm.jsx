@@ -101,10 +101,9 @@ function Form() {
                   setSelect(e.target.value);
                 }}
               >
-                <option value={select} disabled="disabled" selected="selected">
-                  Select eligible assessment
+                <option value="" disabled="disabled" selected="selected">
+                  Select the assessment
                 </option>
-                {console.log("slected option", select)}
                 {data.map((obj) => (
                   <>
                     <option>{obj.title}</option>
@@ -242,9 +241,11 @@ function Form() {
         <div>
           <Link to="/Student">
             <button className="submit-button" disabled={checked}>
+              {}
               Submit extension request
             </button>
           </Link>
+
           <br></br>
           <p>
             Note: You must accept the declaration and fill in the required
