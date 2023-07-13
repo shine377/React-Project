@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import data from "../json/teacherData.json";
 import { useState } from "react";
+import details from '../json/assessmentDetails.json';
+
 
 function Teacher() {
   const [search, setSearch] = useState("");
@@ -9,8 +10,10 @@ function Teacher() {
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
-  const record = data.slice(firstIndex, lastIndex);
-  const pages = Math.ceil(data.length / pageCount);
+  const teacherData = details.filter((d)=> d.role_id === '2' );
+  const record = teacherData[0].details.slice(firstIndex, lastIndex);
+  const pages = Math.ceil(teacherData[0].details.length / pageCount);
+  console.log("record",record);
 
   function previousPage() {
     if (currentPage !== firstIndex) {
@@ -74,8 +77,9 @@ function Teacher() {
           onChange={(e) => {
             setSearch(e.target.value);
           }}
+          value={search}
         ></input>{" "}
-        <button>Clear</button>
+        <button onClick={()=>{setSearch('')}}>Clear</button>
       </div>
 
       <div className="container-fluid">
@@ -141,7 +145,7 @@ function Teacher() {
                 </li>
                 <li class="page-item">
                   <a class="page-link" href="#">
-                    {pages}
+                    {currentPage}
                   </a>
                 </li>
                 <li class="page-item">

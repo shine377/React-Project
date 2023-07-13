@@ -1,6 +1,6 @@
-import data from "../json/data.json";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import details from '../json/assessmentDetails.json';
 
 function Table() {
   const [search, setSearch] = useState("");
@@ -9,8 +9,9 @@ function Table() {
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
-  const record = data.slice(firstIndex, lastIndex);
-  const pages = Math.ceil(data.length / pageCount);
+  const studentData = details.filter((d)=> d.role_id === '1' );
+  const record = studentData[0].details.slice(firstIndex, lastIndex);
+  const pages = Math.ceil(studentData[0].details.length / pageCount);
 
   function previousPage() {
     if (currentPage !== firstIndex) {
@@ -31,8 +32,12 @@ function Table() {
           onChange={(e) => {
             setSearch(e.target.value);
           }}
-        ></input>
-        <button>Clear</button>
+          value={search}
+         ></input>
+         {console.log('search',search)}
+        <button onClick={()=>{
+          setSearch('')
+          }}>Clear</button>
       </div>
       <hr className="hr-line"></hr>
       <div>
@@ -59,6 +64,7 @@ function Table() {
                 }
               })
               .map((obj) => (
+                 
                 <>
                   <tr>
                     <td>{obj.Date}</td>
@@ -70,7 +76,7 @@ function Table() {
                       <td>{obj.Detail}</td>
                     </Link>
                   </tr>
-                </>
+                 </>
               ))}
           </tbody>
         </table>
@@ -91,7 +97,7 @@ function Table() {
               </li>
               <li class="page-item">
                 <a class="page-link" href="#">
-                  {pages}
+                  {currentPage}
                 </a>
               </li>
               <li class="page-item">
