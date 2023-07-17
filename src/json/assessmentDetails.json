@@ -1,0 +1,244 @@
+ [
+    {
+        "role_id":"1",
+        "details":[
+            {
+              "Date": "5.07.2024",
+              "title": "With express",
+              "Extend": "3",
+              "Approved": "10.07.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "10.07.2024",
+              "title": "Without express",
+              "Extend": "2",
+              "Approved": "-",
+              "Status": "Pending",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "30.07.2024",
+              "title": "with typeorm",
+              "Extend": "3",
+              "Approved": "-",
+              "Status": "Denied",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "1.08.2024",
+              "title": "with sequelize",
+              "Extend": "4",
+              "Approved": "08.08.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "15.08.2024",
+              "title": "react project",
+              "Extend": "6",
+              "Approved": "-",
+              "Status": "Cancelled",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "6.07.2024",
+              "title": "With express",
+              "Extend": "3",
+              "Approved": "10.07.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "10.07.2024",
+              "title": "Without express",
+              "Extend": "2",
+              "Approved": "-",
+              "Status": "Pending",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "30.07.2024",
+              "title": "with typeorm",
+              "Extend": "3",
+              "Approved": "-",
+              "Status": "Denied",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "1.08.2024",
+              "title": "with sequelize",
+              "Extend": "4",
+              "Approved": "08.08.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "15.08.2024",
+              "title": "react project",
+              "Extend": "6",
+              "Approved": "-",
+              "Status": "Cancelled",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "6.07.2024",
+              "title": "With express",
+              "Extend": "3",
+              "Approved": "10.07.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "6.07.2024",
+              "title": "With express",
+              "Extend": "3",
+              "Approved": "10.07.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "6.07.2024",
+              "title": "With express",
+              "Extend": "3",
+              "Approved": "10.07.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            },
+            {
+              "Date": "6.07.2024",
+              "title": "With express",
+              "Extend": "3",
+              "Approved": "10.07.2024",
+              "Status": "Approved",
+              "Detail": "View detail"
+            }
+        ]
+    },
+    {
+        "role_id":"2",
+        "details":[
+            {
+              "Student_ID": "S2891105",
+              "Student_Name": "Canvas Test 1",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "With express",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S2891106",
+              "Student_Name": "Canvas Test 39",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "without express",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S2891107",
+              "Student_Name": "Canvas Test 40",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S2891108",
+              "Student_Name": "Canvas Test 41",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S2891109",
+              "Student_Name": "Canvas Test 42",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911010",
+              "Student_Name": "Canvas Test 43",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911011",
+              "Student_Name": "Canvas Test 44",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911012",
+              "Student_Name": "Canvas Test 45",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            },
+            {
+              "Student_ID": "S28911013",
+              "Student_Name": "Canvas Test 46",
+              "Date_submitted": "29.10.2023",
+              "Assessment_title": "Test Email service",
+              "Status": "Cancelled",
+              "Detail": "Vieww Detail"
+            }
+        ]
+    }
+ ]

@@ -1,17 +1,38 @@
-import data from "../json/data.json";
+import details from "../json/assessmentDetails.json";
 import { Link } from "react-router-dom";
 import { Checkbox } from "@material-ui/core";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 function Form() {
-  const [select, setSelect] = useState("-");
+  const [select, setSelect] = useState(" ");
   const [checked, isChecked] = useState(true);
   const [count, setCount] = useState(0);
+  const [assessmentDate, setAssessmentDate] = useState();
+  const [selectedDay, setSelectedDay] = useState();
+  const studentData = details.filter((d) => d.role_id === "1");
+  const studentDataDetails = studentData[0].details;
+
+  const optionNumber = [1,2,3,4,5,6,7];
 
   const dueDate = (value) => {
-    const date = data.find((jsons) => jsons.title === value);
-    console.log(date);
+    const data = studentDataDetails?.find((jsons) => jsons.title === value);
+    const date = data?.Date;
+    // setAssessmentDate(date);
+    // setAssessmentDate(date)
+    console.log('date',assessmentDate)
+    return data?.Date;
   };
+
+  const handleProposedDueDate = () =>{
+    // const assignementDueDate = date.substring(0,1);
+    // console.log(assignementDueDate);
+    // const data = studentDataDetails?.find((jsons) => jsons.title === );
+    // const date = data?.Date;
+    var result = new Date(assessmentDate);
+    result.setDate(result.getDate() + selectedDay);
+    console.log(result)
+    return result;
+  }
 
   const handleChange = (e) => {
     setCount(e.target.value.length);
@@ -104,7 +125,7 @@ function Form() {
                 <option value="" disabled="disabled" selected="selected">
                   Select the assessment
                 </option>
-                {data.map((obj) => (
+                {studentDataDetails.map((obj) => (
                   <>
                     <option>{obj.title}</option>
                   </>
@@ -115,7 +136,7 @@ function Form() {
               <label>Due date</label>
               <input
                 className="inputBox"
-                placeholder={dueDate(select)}
+                value={dueDate(select)}
                 disabled
               ></input>
             </div>
@@ -123,22 +144,25 @@ function Form() {
           <div className="row form-content">
             <div className="col-lg-6">
               <label>How many additional days do you need?* (required)</label>
-              <select className="selectOption">
+              <select
+                className="selectOption"
+                onChange={(e) => {
+                  setSelectedDay(e.target.value);
+                 }}
+              >
                 <option value="" disabled="disabled" selected="selected">
-                  Select days
-                </option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
+                  Select the day 
+                 </option>
+                {optionNumber.map((obj) => (
+                  <>
+                    <option>{obj}</option>
+                  </>
+                ))}
               </select>
             </div>
             <div className="col-lg-6">
               <label>Proposed due date</label>
-              <input className="inputBox" placeholder="-" disabled></input>
+              <input className="inputBox" value={handleProposedDueDate} disabled></input>
             </div>
           </div>
           <div className="form-content">
