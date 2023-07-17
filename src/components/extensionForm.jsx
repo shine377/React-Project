@@ -1,39 +1,64 @@
 import details from "../json/assessmentDetails.json";
 import { Link } from "react-router-dom";
 import { Checkbox } from "@material-ui/core";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 
 function Form() {
   const [select, setSelect] = useState(" ");
   const [checked, isChecked] = useState(true);
   const [count, setCount] = useState(0);
-  const [assessmentDate, setAssessmentDate] = useState();
-  const [selectedDay, setSelectedDay] = useState();
+  const [assessmentDate, setAssessmentDate] = useState(); // proposed assessment date
+  const [selectedDay, setSelectedDay] = useState(); // selected day
+  const [dateDue, setDateDue] = useState(); // assessment date selected
   const studentData = details.filter((d) => d.role_id === "1");
   const studentDataDetails = studentData[0].details;
 
-  const optionNumber = [1,2,3,4,5,6,7];
+  const optionNumber = [1, 2, 3, 4, 5, 6, 7];
 
-  const dueDate = (value) => {
-    const data = studentDataDetails?.find((jsons) => jsons.title === value);
-    const date = data?.Date;
-    // setAssessmentDate(date);
-    // setAssessmentDate(date)
-    console.log('date',assessmentDate)
-    return data?.Date;
+  const handlePropose = (e) => {
+ 
+ 
+    var newDate = new Date(`${dateDue}`);
+    newDate.setDate(newDate.getDate() + parseInt(e.target.value));
+ 
+    const year = newDate.getFullYear();
+    const month = newDate.getMonth() + 1;
+    const day = newDate.getDate();
+
+    const dateWithSlashes = [year, month, day].join('/');
+ 
+
+
+    let selectedDueDate = handleDueDate(select);
+    let proposedDate = selectedDueDate + parseInt(e.target.value);
+    setAssessmentDate(dateWithSlashes);
+    const oneAssessmentDetails = studentDataDetails?.find((s) => s.title === select);
+    oneAssessmentDetails.proposed_date = proposedDate;
+    console.log("Final object",oneAssessmentDetails)
+    return proposedDate;
   };
 
-  const handleProposedDueDate = () =>{
-    // const assignementDueDate = date.substring(0,1);
-    // console.log(assignementDueDate);
-    // const data = studentDataDetails?.find((jsons) => jsons.title === );
-    // const date = data?.Date;
-    var result = new Date(assessmentDate);
-    result.setDate(result.getDate() + selectedDay);
-    console.log(result)
-    return result;
-  }
 
+  const handleDueDate = (selectedAssessment) => {
+
+    console.log("handleDueDate", select);
+     const assessmentDetails = studentDataDetails?.find((s) => s.title === selectedAssessment);
+     const dateOfAssessment = assessmentDetails?.Date;
+     var newDate = new Date(`${dateOfAssessment}`);
+
+     const year = newDate.getFullYear();
+    const month = newDate.getMonth() + 1;
+    const day = newDate.getDate();
+    const dateWithSlashes = [year, month, day].join('/');
+    setDateDue(dateWithSlashes);
+    if(assessmentDate){
+       setAssessmentDate(parseInt(dateOfAssessment)+parseInt(selectedDay))
+       assessmentDetails.proposed_date = parseInt(dateOfAssessment)+parseInt(selectedDay);
+      console.log("Final object",assessmentDetails);
+    } 
+    return dateOfAssessment;
+  };
+ 
   const handleChange = (e) => {
     setCount(e.target.value.length);
   };
@@ -120,6 +145,7 @@ function Form() {
                 className="selectOption"
                 onChange={(e) => {
                   setSelect(e.target.value);
+                  handleDueDate(e.target.value)
                 }}
               >
                 <option value="" disabled="disabled" selected="selected">
@@ -131,39 +157,47 @@ function Form() {
                   </>
                 ))}
               </select>
+              <div> The assessment is {select}</div>
             </div>
             <div className="col-lg-6">
               <label>Due date</label>
               <input
                 className="inputBox"
-                value={dueDate(select)}
+                value={dateDue}
                 disabled
               ></input>
+              <div> The due date is {dateDue}</div>
             </div>
+
           </div>
           <div className="row form-content">
             <div className="col-lg-6">
-              <label>How many additional days do you need?* (required)</label>
+              <label>
+                How many additional days do you need?* (required) ....
+              </label>
               <select
                 className="selectOption"
                 onChange={(e) => {
                   setSelectedDay(e.target.value);
-                 }}
+                  handlePropose(e);
+                }}
               >
                 <option value="" disabled="disabled" selected="selected">
-                  Select the day 
-                 </option>
+                  Select the day
+                </option>
                 {optionNumber.map((obj) => (
                   <>
                     <option>{obj}</option>
                   </>
                 ))}
               </select>
+              <div> The selected day is {selectedDay}</div>
             </div>
             <div className="col-lg-6">
               <label>Proposed due date</label>
-              <input className="inputBox" value={handleProposedDueDate} disabled></input>
+              <input className="inputBox" value={assessmentDate} disabled></input>
             </div>
+            <div> The proposed due date for the assessment is {assessmentDate}</div>
           </div>
           <div className="form-content">
             <label>Reason for extension* (required)</label>
