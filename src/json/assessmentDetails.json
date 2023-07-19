@@ -1,258 +1,229 @@
- [
-    {
-        "role_id":"1",
-        "details":[
-            {
-              "Date": "2023-10-31T09:00:00.594Z",
-              "title": "With express",
-              "Extend": "3",
-              "Approved": "10.07.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-13:14:30:01.766Z",
-              "title": "Without express",
-              "Extend": "2",
-              "Approved": "-",
-              "Status": "Pending",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-12T15:53:25.390Z",
-              "title": "with typeorm",
-              "Extend": "3",
-              "Approved": "-",
-              "Status": "Denied",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-07-22T12:03:01.766Z",
-              "title": "with sequelize",
-              "Extend": "4",
-              "Approved": "08.08.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-07T12:03:01.766Z",
-              "title": "react project",
-              "Extend": "6",
-              "Approved": "-",
-              "Status": "Cancelled",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-12T18:30:00.808Z",
-              "title": "With express",
-              "Extend": "3",
-              "Approved": "10.07.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-11T18:30:00.766Z",
-              "title": "Without express",
-              "Extend": "2",
-              "Approved": "-",
-              "Status": "Pending",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-12T08:10:09.050Z",
-              "title": "with typeorm",
-              "Extend": "3",
-              "Approved": "-",
-              "Status": "Denied",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-13T07:59:29.990Z",
-              "title": "with sequelize",
-              "Extend": "4",
-              "Approved": "08.08.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-07-20T08:51:05.495Z",
-              "title": "react project",
-              "Extend": "6",
-              "Approved": "-",
-              "Status": "Cancelled",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-02T08:51:05.495Z",
-              "title": "With angular",
-              "Extend": "3",
-              "Approved": "10.07.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-12T18:30:00.495Z",
-              "title": "With next",
-              "Extend": "3",
-              "Approved": "10.07.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-08-12T11:05:46.808Z",
-              "title": "With vue",
-              "Extend": "3",
-              "Approved": "10.07.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            },
-            {
-              "Date": "2023-07-27T11:05:46.808Z",
-              "title": "With mongodb",
-              "Extend": "3",
-              "Approved": "10.07.2024",
-              "Status": "Approved",
-              "Detail": "View detail",
-              "proposed_date":null
-            }
-        ]
-    },
-    {
-        "role_id":"2",
-        "details":[
-            {
-              "Student_ID": "S2891105",
-              "Student_Name": "Canvas Test 1",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "With express",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S2891106",
-              "Student_Name": "Canvas Test 39",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "without express",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S2891107",
-              "Student_Name": "Canvas Test 40",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S2891108",
-              "Student_Name": "Canvas Test 41",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S2891109",
-              "Student_Name": "Canvas Test 42",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911010",
-              "Student_Name": "Canvas Test 43",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911011",
-              "Student_Name": "Canvas Test 44",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911012",
-              "Student_Name": "Canvas Test 45",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            },
-            {
-              "Student_ID": "S28911013",
-              "Student_Name": "Canvas Test 46",
-              "Date_submitted": "29.10.2023",
-              "Assessment_title": "Test Email service",
-              "Status": "Cancelled",
-              "Detail": "Vieww Detail"
-            }
-        ]
-    }
- ]
+[
+  {
+    "role_id": "1",
+    "details": [
+      {
+        "Date": "2023-10-31T09:00:00.594Z",
+        "title": "With express",
+        "Extend": "3",
+        "Approved": "10.07.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-13:14:30:01.766Z",
+        "title": "Without express",
+        "Extend": "2",
+        "Approved": "-",
+        "Status": "Pending",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-12T15:53:25.390Z",
+        "title": "with typeorm",
+        "Extend": "3",
+        "Approved": "-",
+        "Status": "Denied",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-07-22T12:03:01.766Z",
+        "title": "with sequelize",
+        "Extend": "4",
+        "Approved": "08.08.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-07T12:03:01.766Z",
+        "title": "react project",
+        "Extend": "6",
+        "Approved": "-",
+        "Status": "Cancelled",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-12T18:30:00.808Z",
+        "title": "With express",
+        "Extend": "3",
+        "Approved": "10.07.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-11T18:30:00.766Z",
+        "title": "Without express",
+        "Extend": "2",
+        "Approved": "-",
+        "Status": "Pending",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-12T08:10:09.050Z",
+        "title": "with typeorm",
+        "Extend": "3",
+        "Approved": "-",
+        "Status": "Denied",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-13T07:59:29.990Z",
+        "title": "with sequelize",
+        "Extend": "4",
+        "Approved": "08.08.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-07-20T08:51:05.495Z",
+        "title": "react project",
+        "Extend": "6",
+        "Approved": "-",
+        "Status": "Cancelled",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-02T08:51:05.495Z",
+        "title": "With angular",
+        "Extend": "3",
+        "Approved": "10.07.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-12T18:30:00.495Z",
+        "title": "With next",
+        "Extend": "3",
+        "Approved": "10.07.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-08-12T11:05:46.808Z",
+        "title": "With vue",
+        "Extend": "3",
+        "Approved": "10.07.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      },
+      {
+        "Date": "2023-07-27T11:05:46.808Z",
+        "title": "With mongodb",
+        "Extend": "3",
+        "Approved": "10.07.2024",
+        "Status": "Approved",
+        "proposed_date": null
+      }
+    ]
+  },
+  {
+    "role_id": "2",
+    "details": [
+      {
+        "Student_ID": "S2891105",
+        "Student_Name": "Canvas Test 1",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "With express",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S2891106",
+        "Student_Name": "Canvas Test 39",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "without express",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S2891107",
+        "Student_Name": "Canvas Test 40",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S2891108",
+        "Student_Name": "Canvas Test 41",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S2891109",
+        "Student_Name": "Canvas Test 42",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911010",
+        "Student_Name": "Canvas Test 43",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911011",
+        "Student_Name": "Canvas Test 44",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911012",
+        "Student_Name": "Canvas Test 45",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      },
+      {
+        "Student_ID": "S28911013",
+        "Student_Name": "Canvas Test 46",
+        "Date_submitted": "29.10.2023",
+        "Assessment_title": "Test Email service",
+        "Status": "Cancelled"
+      }
+    ]
+  }
+]

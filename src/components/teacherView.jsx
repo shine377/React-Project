@@ -12,7 +12,7 @@ function Teacher() {
   const firstIndex = lastIndex - pageCount;
   const teacherData = details.filter((d)=> d.role_id === '2' );
   const record = teacherData[0].details.slice(firstIndex, lastIndex);
-  const pages = Math.ceil(teacherData[0].details.length / pageCount);
+  // const pages = Math.ceil(teacherData[0].details.length / pageCount);
   console.log("record",record);
 
   function previousPage() {
@@ -120,9 +120,6 @@ function Teacher() {
                       <td>{obj.Date_submitted}</td>
                       <td>{obj.Assessment_title}</td>
                       <td>{obj.Status}</td>
-                      <Link>
-                        <td>{obj.Detail}</td>
-                      </Link>
                     </tr>
                   </>
                 ))}

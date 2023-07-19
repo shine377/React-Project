@@ -1,17 +1,25 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
-import details from '../json/assessmentDetails.json';
+import { useState, useEffect } from "react";
+import details from "../json/assessmentDetails.json";
 
 function Table() {
   const [search, setSearch] = useState("");
   const [count, setCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [formData, setFormData] = useState([]);
+
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
-  const studentData = details.filter((d)=> d.role_id === '1' );
-  const record = studentData[0].details.slice(firstIndex, lastIndex);
+  const studentData = details.filter((d) => d.role_id === "1");
+  const record = formData.slice(firstIndex, lastIndex);
   const pages = Math.ceil(studentData[0].details.length / pageCount);
+
+  useEffect(() => {
+    fetch("http://localhost:8000/user/table")
+      .then((data) => data.json())
+      .then((data) => setFormData(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   function previousPage() {
     if (currentPage !== firstIndex) {
@@ -33,11 +41,15 @@ function Table() {
             setSearch(e.target.value);
           }}
           value={search}
-         ></input>
-         {console.log('search',search)}
-        <button onClick={()=>{
-          setSearch('')
-          }}>Clear</button>
+        ></input>
+        {console.log("search", search)}
+        <button
+          onClick={() => {
+            setSearch("");
+          }}
+        >
+          Clear
+        </button>
       </div>
       <hr className="hr-line"></hr>
       <div>
@@ -64,19 +76,15 @@ function Table() {
                 }
               })
               .map((obj) => (
-                 
                 <>
                   <tr>
-                    <td>{obj.Date}</td>
-                    <td>{obj.title}</td>
-                    <td>{obj.Extend}</td>
-                    <td>{obj.Approved}</td>
+                    <td>{obj.dateSubmitted}</td>
+                    <td>{obj.assessmentTitle}</td>
+                    <td>{obj.extendedBy}</td>
+                    <td>{obj.approvedDueDate}</td>
                     <td>{obj.Status}</td>
-                    <Link>
-                      <td>{obj.Detail}</td>
-                    </Link>
                   </tr>
-                 </>
+                </>
               ))}
           </tbody>
         </table>
