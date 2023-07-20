@@ -16,34 +16,27 @@ function Form() {
   const optionNumber = [1, 2, 3, 4, 5, 6, 7];
 
   const handlePropose = (e) => {
-    var newDate = new Date(`${dateDue}`);
-    newDate.setDate(newDate.getDate() + parseInt(e.target.value));
+    var newDate = dateDue;
+    console.log(dateDue);
+    // const Dates = newDate.setDate(newDate.getDate() + parseInt(e.target.value));
+    console.log(newDate);
 
-    const year = newDate.getFullYear();
-    const month = newDate.getMonth() + 1;
-    const day = newDate.getDate();
+    // const year = newDate.getFullYear();
+    // const month = newDate.getMonth() + 1;
+    // const day = newDate.getDate() + parseInt(e.target.value);
 
-    const dateWithSlashes = [year, month, day].join("/");
-
-    let selectedDueDate = handleDueDate(select);
-    let proposedDate = selectedDueDate + parseInt(e.target.value);
+    const dateWithSlashes = newDate.toLocaleString();
+    console.log(dateWithSlashes.split(",").pop());
+    // setDateDue(dateWithSlashes);
     setAssessmentDate(dateWithSlashes);
-    const oneAssessmentDetails = jsonData?.find(
-      (s) => s.assessmentTitle === select
-    );
-    oneAssessmentDetails.selected_date = parseInt(e.target.value);
-    oneAssessmentDetails.proposed_date = proposedDate;
     // table data
     const Details = formData?.find((s) => s.assessmentTitle);
+    Details.dateSubmitted = dateDue[0];
     Details.assessmentTitle = select;
-    Details.dateSubmitted = selectedDueDate;
     Details.extendedBy = parseInt(e.target.value);
-    Details.approvedDueDate = proposedDate;
+    Details.approvedDueDate = dateWithSlashes;
     tableData(Details);
     console.log("table", Details);
-    //
-    console.log("Final object", oneAssessmentDetails);
-    return proposedDate;
   };
 
   const handleDueDate = (selectedAssessment) => {
@@ -55,18 +48,9 @@ function Form() {
     console.log(dateOfAssessment);
     var newDate = new Date(`${dateOfAssessment}`);
 
-    const year = newDate.getFullYear();
-    const month = newDate.getMonth() + 1;
-    const day = newDate.getDate();
-    const dateWithSlashes = [year, month, day].join("/");
+    const year = newDate.toLocaleString();
+    const dateWithSlashes = [year];
     setDateDue(dateWithSlashes);
-    if (assessmentDate) {
-      setAssessmentDate(parseInt(dateOfAssessment) + parseInt(selectedDay));
-      assessmentDetails.proposed_date =
-        parseInt(dateOfAssessment) + parseInt(selectedDay);
-      console.log("Final", assessmentDetails);
-    }
-
     return dateOfAssessment;
   };
 
