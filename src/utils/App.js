@@ -5,12 +5,20 @@ import Roles from "../components/roles";
 import Teacher from "../components/teacherView";
 
 function App() {
+  const handleLinkClick = () => {
+    window.location.reload(); // This will refresh the page
+  };
+
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Roles />}></Route>
-          <Route path="/Student" element={<Extension />}></Route>
+          <Route
+            path="/Student"
+            element={<Extension />}
+            onClick={handleLinkClick}
+          ></Route>
           <Route path="/Teacher" element={<Teacher />}></Route>
           <Route path="/form" element={<Form />}></Route>
         </Routes>

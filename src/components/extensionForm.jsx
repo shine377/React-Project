@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Checkbox } from "@material-ui/core";
 import { useEffect, useState } from "react";
+import { parse, addDays, format } from "date-fns";
 
 function Form() {
   const [select, setSelect] = useState(" ");
@@ -13,22 +14,36 @@ function Form() {
   const [selectedDay, setSelectedDay] = useState(); // selected day
   const [dateDue, setDateDue] = useState(); // assessment date selected
 
-  const optionNumber = [1, 2, 3, 4, 5, 6, 7];
+  const optionNumber = [0, 1, 2, 3, 4, 5, 6, 7];
+
+  useEffect(() => {
+      var newDate = dateDue;
+      const dateWithSlashes = newDate?.toLocaleString();
+      if (dateWithSlashes) {
+        const dateObject = parse(
+          dateWithSlashes,
+          "dd/MM/yyyy, HH:mm:ss",
+          new Date()
+        );
+        const addDayaValue = addDays(dateObject, selectedDay || "");
+        const formattedDate = format(addDayaValue, "dd/MM/yyyy, HH:mm:ss");
+        setAssessmentDate(formattedDate);
+      } else {
+        setAssessmentDate("");
+      }
+  }, [dateDue, selectedDay]);
 
   const handlePropose = (e) => {
     var newDate = dateDue;
-    console.log(dateDue);
-    // const Dates = newDate.setDate(newDate.getDate() + parseInt(e.target.value));
-    console.log(newDate);
-
-    // const year = newDate.getFullYear();
-    // const month = newDate.getMonth() + 1;
-    // const day = newDate.getDate() + parseInt(e.target.value);
-
     const dateWithSlashes = newDate.toLocaleString();
-    console.log(dateWithSlashes.split(",").pop());
-    // setDateDue(dateWithSlashes);
-    setAssessmentDate(dateWithSlashes);
+    const timestamp = dateWithSlashes;
+    console.log(timestamp);
+    const dateObject = parse(timestamp, "dd/MM/yyyy, HH:mm:ss", new Date());
+    const addDayaValue = addDays(dateObject, parseInt(e.target.value));
+    const formattedDate = format(addDayaValue, "dd/MM/yyyy, HH:mm:ss");
+    console.log(formattedDate);
+
+    setAssessmentDate(formattedDate);
     // table data
     const Details = formData?.find((s) => s.assessmentTitle);
     Details.dateSubmitted = dateDue[0];

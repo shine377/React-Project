@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import details from "../json/assessmentDetails.json";
 
 function Table() {
   const [search, setSearch] = useState("");
@@ -10,9 +9,7 @@ function Table() {
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
-  const studentData = details.filter((d) => d.role_id === "1");
   const record = formData.slice(firstIndex, lastIndex);
-  const pages = Math.ceil(studentData[0].details.length / pageCount);
 
   useEffect(() => {
     fetch("http://localhost:8000/user/table")
@@ -31,6 +28,7 @@ function Table() {
       setCurrentPage(currentPage + 1);
     }
   }
+
   return (
     <div className="container-fluid">
       <div>
