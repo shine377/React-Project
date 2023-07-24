@@ -70,6 +70,7 @@ function Form() {
     setCount(e.target.value.length);
   };
 
+  //Posting data in students table
   const submitBtn = (select) => {
     fetch("http://localhost:8000/api/v10/table", {
       method: "post",
@@ -83,6 +84,7 @@ function Form() {
       });
   };
 
+  //Getting assignments for the dropdown
   useEffect(() => {
     fetch("http://localhost:8000/api/v10")
       .then((data) => data.json())
@@ -90,6 +92,7 @@ function Form() {
       .catch((err) => console.log(err));
   }, []);
 
+  //Getting students table info
   fetch("http://localhost:8000/api/v10/table")
     .then((data) => data.json())
     .then((data) => setFormData(data))

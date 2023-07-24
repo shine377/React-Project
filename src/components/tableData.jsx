@@ -5,12 +5,12 @@ function Table() {
   const [count, setCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [formData, setFormData] = useState([]);
-
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
   const record = formData.slice(firstIndex, lastIndex);
 
+  //Getting students table data
   useEffect(() => {
     fetch("http://localhost:8000/api/v10/table")
       .then((data) => data.json())

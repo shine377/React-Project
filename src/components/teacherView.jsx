@@ -22,6 +22,7 @@ function Teacher() {
     }
   }
 
+  //Getting teachers table data
   useEffect(() => {
     fetch("  http://localhost:8000/api/v10/teacherTable")
       .then((data) => data.json())
@@ -117,12 +118,12 @@ function Teacher() {
                   if (search === "") {
                     return val;
                   } else if (
-                    val.studentName.toLowerCase().includes(
-                      search.toLowerCase()
-                    ) ||
-                    val.assessmentTitle.toLowerCase().includes(
-                      search.toLowerCase()
-                    )
+                    val.studentName
+                      .toLowerCase()
+                      .includes(search.toLowerCase()) ||
+                    val.assessmentTitle
+                      .toLowerCase()
+                      .includes(search.toLowerCase())
                   ) {
                     return val;
                   }
