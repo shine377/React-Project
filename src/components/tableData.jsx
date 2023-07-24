@@ -12,7 +12,7 @@ function Table() {
   const record = formData.slice(firstIndex, lastIndex);
 
   useEffect(() => {
-    fetch("http://localhost:8000/user/table")
+    fetch("http://localhost:8000/api/v10/table")
       .then((data) => data.json())
       .then((data) => setFormData(data))
       .catch((err) => console.log(err));

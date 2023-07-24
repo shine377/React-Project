@@ -1,19 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import details from '../json/assessmentDetails.json';
-
+import { useEffect } from "react";
 
 function Teacher() {
   const [search, setSearch] = useState("");
   const [count, setCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [teacherTable, setTeacherTable] = useState();
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
-  const teacherData = details.filter((d)=> d.role_id === '2' );
-  const record = teacherData[0].details.slice(firstIndex, lastIndex);
-  // const pages = Math.ceil(teacherData[0].details.length / pageCount);
-  console.log("record",record);
 
   function previousPage() {
     if (currentPage !== firstIndex) {
@@ -25,6 +21,18 @@ function Teacher() {
       setCurrentPage(currentPage + 1);
     }
   }
+
+  useEffect(() => {
+    fetch("  http://localhost:8000/api/v10/teacherTable")
+      .then((data) => data.json())
+      .then((data) => {
+        data.map((obj) => {
+          setTeacherTable(obj.Students);
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <>
       <div className="App">
@@ -79,7 +87,13 @@ function Teacher() {
           }}
           value={search}
         ></input>{" "}
-        <button onClick={()=>{setSearch('')}}>Clear</button>
+        <button
+          onClick={() => {
+            setSearch("");
+          }}
+        >
+          Clear
+        </button>
       </div>
 
       <div className="container-fluid">
@@ -97,15 +111,16 @@ function Teacher() {
               </tr>
             </thead>
             <tbody>
-              {record
+              {teacherTable
+                ?.slice(firstIndex, lastIndex)
                 .filter((val) => {
                   if (search === "") {
                     return val;
                   } else if (
-                    val.Student_Name.toLowerCase().includes(
+                    val.studentName.toLowerCase().includes(
                       search.toLowerCase()
                     ) ||
-                    val.Assessment_title.toLowerCase().includes(
+                    val.assessmentTitle.toLowerCase().includes(
                       search.toLowerCase()
                     )
                   ) {
@@ -115,10 +130,10 @@ function Teacher() {
                 .map((obj) => (
                   <>
                     <tr>
-                      <td>{obj.Student_ID}</td>
-                      <td>{obj.Student_Name}</td>
-                      <td>{obj.Date_submitted}</td>
-                      <td>{obj.Assessment_title}</td>
+                      <td>{obj.id}</td>
+                      <td>{obj.studentName}</td>
+                      <td>{obj.dateSubmitted}</td>
+                      <td>{obj.assessmentTitle}</td>
                       <td>{obj.Status}</td>
                     </tr>
                   </>

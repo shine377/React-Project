@@ -14,34 +14,34 @@ function Form() {
   const [selectedDay, setSelectedDay] = useState(); // selected day
   const [dateDue, setDateDue] = useState(); // assessment date selected
 
-  const optionNumber = [0, 1, 2, 3, 4, 5, 6, 7];
+  const optionNumber = [1, 2, 3, 4, 5, 6, 7];
 
   useEffect(() => {
-      var newDate = dateDue;
-      const dateWithSlashes = newDate?.toLocaleString();
-      if (dateWithSlashes) {
-        const dateObject = parse(
-          dateWithSlashes,
-          "dd/MM/yyyy, HH:mm:ss",
-          new Date()
-        );
-        const addDayaValue = addDays(dateObject, selectedDay || "");
+    var newDate = dateDue;
+    const dateWithSlashes = newDate?.toLocaleString();
+    if (dateWithSlashes) {
+      const dateObject = parse(
+        dateWithSlashes,
+        "dd/MM/yyyy, HH:mm:ss",
+        new Date()
+      );
+      if (selectedDay) {
+        const addDayaValue = addDays(dateObject, selectedDay);
         const formattedDate = format(addDayaValue, "dd/MM/yyyy, HH:mm:ss");
         setAssessmentDate(formattedDate);
-      } else {
-        setAssessmentDate("");
       }
+    } else {
+      setAssessmentDate("");
+    }
   }, [dateDue, selectedDay]);
 
   const handlePropose = (e) => {
     var newDate = dateDue;
     const dateWithSlashes = newDate.toLocaleString();
     const timestamp = dateWithSlashes;
-    console.log(timestamp);
     const dateObject = parse(timestamp, "dd/MM/yyyy, HH:mm:ss", new Date());
     const addDayaValue = addDays(dateObject, parseInt(e.target.value));
     const formattedDate = format(addDayaValue, "dd/MM/yyyy, HH:mm:ss");
-    console.log(formattedDate);
 
     setAssessmentDate(formattedDate);
     // table data
@@ -51,20 +51,17 @@ function Form() {
     Details.extendedBy = parseInt(e.target.value);
     Details.approvedDueDate = dateWithSlashes;
     tableData(Details);
-    console.log("table", Details);
   };
 
   const handleDueDate = (selectedAssessment) => {
-    console.log("handleDueDate", select);
     const assessmentDetails = jsonData?.find(
       (s) => s.assessmentTitle === selectedAssessment
     );
     const dateOfAssessment = assessmentDetails?.dueDate;
-    console.log(dateOfAssessment);
     var newDate = new Date(`${dateOfAssessment}`);
 
-    const year = newDate.toLocaleString();
-    const dateWithSlashes = [year];
+    const date = newDate.toLocaleString();
+    const dateWithSlashes = [date];
     setDateDue(dateWithSlashes);
     return dateOfAssessment;
   };
@@ -74,9 +71,7 @@ function Form() {
   };
 
   const submitBtn = (select) => {
-    console.log("table", table);
-
-    fetch("http://localhost:8000/user/table", {
+    fetch("http://localhost:8000/api/v10/table", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(table),
@@ -86,17 +81,16 @@ function Form() {
       .then(() => {
         console.log("post done successfull");
       });
-    console.log("detail", table);
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/user")
+    fetch("http://localhost:8000/api/v10")
       .then((data) => data.json())
       .then((data) => setJsonData(data))
       .catch((err) => console.log(err));
   }, []);
 
-  fetch("http://localhost:8000/user/table")
+  fetch("http://localhost:8000/api/v10/table")
     .then((data) => data.json())
     .then((data) => setFormData(data))
     .catch((err) => console.log(err));
@@ -341,7 +335,7 @@ function Form() {
             <button
               className="submit-button"
               onClick={() => {
-                console.log("Final object", submitBtn(select));
+                submitBtn(select);
               }}
               disabled={checked}
             >
