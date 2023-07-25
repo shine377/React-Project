@@ -7,6 +7,10 @@ function Teacher() {
   const [count, setCount] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [teacherTable, setTeacherTable] = useState();
+  const [length, setLength] = useState(0);
+  const [approve, setApprove] = useState(0);
+  const [denied, setDenied] = useState(0);
+  const [cancelled, setCancelled] = useState(0);
   const pageCount = count;
   const lastIndex = currentPage * pageCount;
   const firstIndex = lastIndex - pageCount;
@@ -32,7 +36,19 @@ function Teacher() {
         });
       })
       .catch((err) => console.log(err));
-  }, []);
+
+    //Count of status
+    const statusPending = teacherTable?.filter((b) => b.Status === "pending");
+    setLength(statusPending?.length);
+    const statusApproved = teacherTable?.filter((b) => b.Status === "approved");
+    setApprove(statusApproved?.length);
+    const statusDenied = teacherTable?.filter((b) => b.Status === "denied");
+    setDenied(statusDenied?.length);
+    const statusCancelled = teacherTable?.filter(
+      (b) => b.Status === "cancelled"
+    );
+    setCancelled(statusCancelled?.length);
+  }, [teacherTable]);
 
   return (
     <>
@@ -71,18 +87,20 @@ function Teacher() {
         </p>
         <hr></hr>
       </div>
-      <div>
-        <ol>
-          <li className="pending-request">Pending</li>
-          <li className="approved-request">Approved</li>
-          <li className="denied-request">Denied</li>
-          <li className="cancelled-request">Cancelled</li>
-        </ol>
+      <div className="status-teachers">
+        <p className="status-count">{length}</p>
+        <h4 className="pending-request">Pending</h4>
+        <p className="status-count">{approve} </p>
+        <h4 className="approved-request">Approved</h4>
+        <p className="status-count">{denied}</p>
+        <h4 className="denied-request">Denied</h4>
+        <p className="status-count">{cancelled}</p>
+        <h4 className="cancelled-request">Cancelled</h4>
       </div>
       <div className="container-fluid">
         <h4 style={{ paddingTop: "20px" }}>Extension request</h4>
         <input
-          placeholder="Search byname,assessment"
+          placeholder="Search by name,assessment"
           onChange={(e) => {
             setSearch(e.target.value);
           }}
@@ -96,7 +114,6 @@ function Teacher() {
           Clear
         </button>
       </div>
-
       <div className="container-fluid">
         <hr className="hr-line"></hr>
         <div>

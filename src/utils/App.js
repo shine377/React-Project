@@ -16,8 +16,7 @@ function App() {
           <Route path="/" element={<Roles />}></Route>
           <Route
             path="/Student"
-            element={<Extension />}
-            onClick={handleLinkClick}
+            element={<Extension onClick={handleLinkClick} />}
           ></Route>
           <Route path="/Teacher" element={<Teacher />}></Route>
           <Route path="/form" element={<Form />}></Route>

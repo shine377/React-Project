@@ -100,40 +100,33 @@ a:visited {
 /* list css */
 
 .pending-request {
-  margin-right: 10%;
+  margin-right: 9%;
   background-color: #f8d224;
-  width: 76px;
-  padding-left: 13px;
+  font-size: 15px;
   border-radius: 5px;
-  height: 23px;
-  padding-top: 2px;
+  padding: 3px;
 }
 .approved-request {
   margin-right: 10%;
   background-color: #acd66f;
-  width: 76px;
-  padding-left: 9px;
   border-radius: 5px;
-  height: 23px;
-  padding-top: 2px;
+  font-size: 15px;
+  padding: 3px;
 }
 .denied-request {
   margin-right: 10%;
   background-color: #e63f3f;
-  width: 76px;
-  padding-left: 15px;
   border-radius: 5px;
-  height: 23px;
-  padding-top: 2px;
+  font-size: 15px;
+  padding: 3px;
 }
 .cancelled-request {
   margin-right: 10%;
   background-color: #161414;
-  width: 76px;
-  padding-left: 8px;
   border-radius: 5px;
-  height: 23px;
-  padding-top: 2px;
+  font-size: 15px;
+  color: white;
+  padding: 3px;
 }
 ol {
   display: flex;
@@ -187,4 +180,15 @@ tr {
 
 a:hover {
   text-decoration: none;
+}
+
+.status-teachers {
+  display: flex;
+  margin-left: 50px;
+}
+
+.status-count {
+  margin-right: 5px;
+  margin-top: 12px;
+  font-size: 15px;
 }

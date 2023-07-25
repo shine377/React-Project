@@ -68,7 +68,9 @@ function Table() {
                 if (search === "") {
                   return val;
                 } else if (
-                  val.title.toLowerCase().includes(search.toLowerCase())
+                  val.assessmentTitle
+                    .toLowerCase()
+                    .includes(search.toLowerCase())
                 ) {
                   return val;
                 }
