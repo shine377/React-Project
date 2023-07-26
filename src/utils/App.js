@@ -6,7 +6,7 @@ import Teacher from "../components/teacherView";
 
 function App() {
   const handleLinkClick = () => {
-    window.location.reload(); // This will refresh the page
+    window.location.reload();
   };
 
   return (
