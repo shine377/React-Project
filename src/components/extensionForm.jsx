@@ -72,7 +72,7 @@ function Form() {
 
   //Posting data in students table
   const submitBtn = (select) => {
-    fetch("http://localhost:8000/api/v10/table", {
+    fetch("http://localhost:8000/api/v1/table", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(table),
@@ -86,14 +86,14 @@ function Form() {
 
   //Getting assignments for the dropdown
   useEffect(() => {
-    fetch("http://localhost:8000/api/v10")
+    fetch("http://localhost:8000/api/v1")
       .then((data) => data.json())
       .then((data) => setJsonData(data))
       .catch((err) => console.log(err));
   }, []);
 
   //Getting students table info
-  fetch("http://localhost:8000/api/v10/table")
+  fetch("http://localhost:8000/api/v1/table")
     .then((data) => data.json())
     .then((data) => setFormData(data))
     .catch((err) => console.log(err));

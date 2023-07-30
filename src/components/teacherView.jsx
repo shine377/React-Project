@@ -28,7 +28,7 @@ function Teacher() {
 
   //Getting teachers table data
   useEffect(() => {
-    fetch("  http://localhost:8000/api/v10/teacherTable")
+    fetch("  http://localhost:8000/api/v1/teacherTable")
       .then((data) => data.json())
       .then((data) => {
         data.map((obj) => {
